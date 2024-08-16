@@ -1,0 +1,47 @@
+Test Task: Build an Accessible Blog Platform
+
+Objective:
+    Create a simple blog platform using React.js and Next.js that adheres to W3C accessibility guidelines.
+
+Task Requirements:
+    Landing Page:
+        Create a landing page that displays a list of blog posts.
+        Each blog post should have a title, short description, author name, and publish date.
+        Include a search bar at the top of the page to filter blog posts by title or author.
+
+    Blog Post Page:
+        Clicking on a blog post title should navigate to a dedicated page for that post.
+        The blog post page should display the title, full content, author details, and publish date.
+        Include a "Back to Home" button to return to the landing page.
+
+    Create New Post Page:
+        Provide a form where users can create a new blog post.
+        The form should include fields for title, author, content, and tags.
+        Implement form validation (e.g., required fields, character limits).
+        Include a "Submit" button to save the post and redirect to the landing page.
+
+Accessibility Requirements:
+    Semantic HTML: 
+        Use appropriate HTML5 elements (<header>, <nav>, <main>, <article>, <section>, etc.).
+        Keyboard Navigation: Ensure that the entire application can be navigated using the keyboard.
+        ARIA Attributes: Use ARIA attributes where necessary to enhance accessibility (e.g., aria-label, role).
+        Color Contrast: Ensure text has sufficient contrast against its background.
+        Alt Text: All images should include descriptive alt text.
+        Form Accessibility: Ensure form elements are properly labeled and associated with their respective inputs using the <label> element or aria-labelledby.
+        Skip Navigation: Implement a "Skip to Content" link for keyboard users to bypass repetitive navigation links.
+        Responsive Design: Ensure the platform is responsive and accessible on different screen sizes and devices.
+
+    Bonus:
+        Implement server-side rendering (SSR) with Next.js for faster page loads and better SEO.
+        Add unit tests for components, especially focusing on accessibility-related features.
+        Deploy the application on Vercel or any other platform and provide a live link.
+        Deliverables:
+        A GitHub repository link with your code.
+        A README file with setup instructions, an explanation of the accessibility features implemented, and any assumptions or decisions made.
+        A live demo link (if deployed).
+        Evaluation Criteria:
+        Functionality: Does the application work as expected?
+        Accessibility: How well does the application adhere to W3C accessibility guidelines?
+        Code Quality: Is the code clean, modular, and easy to understand?
+        UI/UX: Is the interface user-friendly and visually appealing?
+        Creativity: Are there any additional features or enhancements beyond the basic requirements?
