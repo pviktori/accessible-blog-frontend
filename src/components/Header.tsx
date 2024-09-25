@@ -6,12 +6,12 @@ const Header = () => {
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/" className="hover:underline">
-              Home
+            <Link href="/posts" className="hover:underline">
+              Posts
             </Link>
           </li>
           <li>
-            <Link href="/create" className="hover:underline">
+            <Link href="/posts/create" className="hover:underline">
               Create Post
             </Link>
           </li>
