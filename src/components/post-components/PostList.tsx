@@ -1,14 +1,8 @@
+import { usePosts } from "../../context/PostsContext/usePosts";
 import PostItem from "./PostItem";
 
-interface Post {
-  id: number;
-  title: string;
-  description: string;
-  author: string;
-  date: string;
-}
-
-const PostList: React.FC<{ posts: Post[] }> = ({ posts }) => {
+const PostList: React.FC = () => {
+  const { posts } = usePosts();
   return (
     <ul className="space-y-4">
       {posts.map((post) => (

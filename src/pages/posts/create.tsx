@@ -1,13 +1,7 @@
-import Layout from "../../components/Layout";
-import EditPost from "@/src/components/PostEditForm";
+import EditPostLayout from "@/src/components/post-components/PostFormLayout";
 
 const CreatePostPage: React.FC = () => {
-  return (
-    <Layout>
-      <h1 className="text-2xl font-bold mb-4">Create New Post</h1>
-      <EditPost />
-    </Layout>
-  );
+  return <EditPostLayout />;
 };
 
 export default CreatePostPage;

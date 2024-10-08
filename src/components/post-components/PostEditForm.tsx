@@ -2,8 +2,12 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import InputField from "@/src/components/form-components/InputField";
 import { Post } from "@/src/interfaces/Post.interface";
+import { memo } from "react";
 
-const EditPost: React.FC<{ post?: Post }> = ({ post = { title: "", author: "", content: "", tags: "" } }) => {
+const EditPost: React.FC<{ post?: Post; submitForm: (post: Partial<Post>) => void }> = ({
+  post = { title: "", author: "", content: "", tags: "" },
+  submitForm,
+}) => {
   return (
     <Formik
       initialValues={post}
@@ -14,8 +18,8 @@ const EditPost: React.FC<{ post?: Post }> = ({ post = { title: "", author: "", c
         tags: Yup.string(),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
-        setSubmitting(false);
+        // setSubmitting(false);
+        submitForm(values);
       }}>
       {({ isSubmitting }) => (
         <Form className="space-y-4">
@@ -36,4 +40,4 @@ const EditPost: React.FC<{ post?: Post }> = ({ post = { title: "", author: "", c
   );
 };
 
-export default EditPost;
+export default memo(EditPost);

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Post } from "../interfaces/Post.interface";
+import { Post } from "../../interfaces/Post.interface";
 
 const PostItem: React.FC<{ post: Post }> = ({ post }) => {
   return (

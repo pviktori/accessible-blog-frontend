@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Layout from "../../components/Layout";
-import PostList from "../../components/PostList";
+import { usePosts } from "@/src/context/PostsContext/usePosts";
+import { useDebounce } from "@/src/hooks/useDebounce";
+import PostList from "@/src/components/post-components/PostList";
 
 const PostsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebounce(searchQuery, 1000);
+  const { filterPosts } = usePosts();
 
-  const posts = [
-    { id: 1, title: "First Post", description: "This is the first post", author: "John Doe", date: "2024-08-10" },
-    { id: 2, title: "Second Post", description: "This is the second post", author: "Jane Doe", date: "2024-08-11" },
-    { id: 3, title: "Third Post", description: "This is the third post", author: "Jake Doe", date: "2024-08-12" },
-  ];
+  const filterPostsHandler = (e: any) => {
+    setSearchQuery(e.target!.value);
+  };
 
-  const filteredPosts = posts.filter(
-    (post) =>
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.author.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filterPostsHandlerCallback = useCallback(filterPostsHandler, []);
+
+  useEffect(() => {
+    filterPosts(debouncedSearchQuery);
+  }, [debouncedSearchQuery]);
 
   return (
     <Layout>
@@ -28,12 +30,12 @@ const PostsPage: React.FC = () => {
           type="text"
           id="search"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={filterPostsHandlerCallback}
           placeholder="Search by title or author"
           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <PostList posts={filteredPosts} />
+      <PostList />
     </Layout>
   );
 };
